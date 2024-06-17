@@ -6,13 +6,19 @@ int main()
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
     sf::RenderWindow window(sf::VideoMode(800, 600), "Ventana nueva pa", sf::Style::Default, settings);
-    sf::CircleShape shape(100.f);
-    sf::Vector2f vector(100, 100);
-    shape.setPosition(vector);
-    shape.setFillColor(sf::Color::Blue);
-    shape.setOutlineThickness(10);
-    int movement = 10;
+    
+    sf::Texture playerTexture;
+    sf::Sprite playerSprite;
 
+    sf::Vector2f vector(100, 100);
+    int movement = 1;
+
+    if (playerTexture.loadFromFile("Assets/Player/Textures/spritesheet.png")) 
+    {
+        playerSprite.setTexture(playerTexture);
+    }
+    playerSprite.setPosition(vector);
+    playerSprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
     while (window.isOpen())
     {
         sf::Event event;
@@ -20,27 +26,60 @@ int main()
         {
             if (event.type == sf::Event::Closed)
                 window.close();
+            if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape))
+                window.close();
 
-            if (event.key.code == sf::Keyboard::Key::Up and event.type == sf::Event::KeyPressed)
-                shape.setRadius(shape.getRadius() + 1);
-            if (event.key.code == sf::Keyboard::Key::Down and event.type == sf::Event::KeyPressed)
-                shape.setRadius(shape.getRadius() - 1);
-
-            if (event.key.code == sf::Keyboard::Key::S and event.type == sf::Event::KeyPressed)
+            /*if (event.key.code == sf::Keyboard::Key::S && event.type == sf::Event::KeyPressed)
+            {
                 vector.y += movement;
-                shape.setPosition(vector);
-            if (event.key.code == sf::Keyboard::Key::W and event.type == sf::Event::KeyPressed)
+                playerSprite.setPosition(vector);
+                playerSprite.setTextureRect(sf::IntRect(0, 128, 64, 64));
+            }
+            if (event.key.code == sf::Keyboard::Key::W && event.type == sf::Event::KeyPressed)
+            {
                 vector.y -= movement;
-                shape.setPosition(vector);
-            if (event.key.code == sf::Keyboard::Key::A and event.type == sf::Event::KeyPressed)
+                playerSprite.setPosition(vector);
+                playerSprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
+            }
+            if (event.key.code == sf::Keyboard::Key::A && event.type == sf::Event::KeyPressed)
+            {
                 vector.x -= movement;
-                shape.setPosition(vector);
-            if (event.key.code == sf::Keyboard::Key::D and event.type == sf::Event::KeyPressed)
+                playerSprite.setPosition(vector);
+                playerSprite.setTextureRect(sf::IntRect(0, 64, 64, 64));
+            }
+            if (event.key.code == sf::Keyboard::Key::D && event.type == sf::Event::KeyPressed)
+            {
                 vector.x += movement;
-                shape.setPosition(vector);
+                playerSprite.setPosition(vector);
+                playerSprite.setTextureRect(sf::IntRect(0, 192, 64, 64));
+            }*/
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
+        {
+            vector.y += movement;
+            playerSprite.setPosition(vector);
+            playerSprite.setTextureRect(sf::IntRect(0, 128, 64, 64));
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
+        {
+            vector.y -= movement;
+            playerSprite.setPosition(vector);
+            playerSprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
+        {
+            vector.x -= movement;
+            playerSprite.setPosition(vector);
+            playerSprite.setTextureRect(sf::IntRect(0, 64, 64, 64));
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
+        {
+            vector.x += movement;
+            playerSprite.setPosition(vector);
+            playerSprite.setTextureRect(sf::IntRect(0, 192, 64, 64));
         }
         window.clear(sf::Color::Black);
-        window.draw(shape);
+        window.draw(playerSprite);
         window.display();
     }
 
