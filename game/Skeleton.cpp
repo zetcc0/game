@@ -1,9 +1,17 @@
 #include "Skeleton.h"
 
+Skeleton::Skeleton()
+{
+    this->sprite.setPosition(sf::Vector2f(300, 300));
+    this->sprite.setTextureRect(sf::IntRect(0, 128, 64, 64));
+}
+
+Skeleton::~Skeleton()
+{
+}
+
 void Skeleton::Initialize()
 {
-    this->sprite.setPosition(sf::Vector2f(100, 100));
-    this->sprite.setTextureRect(sf::IntRect(0, 128, 64, 64));
 }
 
 void Skeleton::Load()

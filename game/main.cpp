@@ -1,6 +1,6 @@
 #include "Skeleton.h"
 #include "Player.h"
-
+#include "FrameRate.h"
 
 
 int main()
@@ -8,21 +8,22 @@ int main()
     // ---------------------- Creating window ---------------------- 
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Ventana nueva pa", sf::Style::Default, settings);
-    //  ---------------------- End Creating window ---------------------- 
+    sf::RenderWindow window(sf::VideoMode(1200, 900), "Ventana nueva pa", sf::Style::Default, settings);
+    window.setFramerateLimit(60);
 
+    
     // ---------------------- Skeleton ---------------------- 
     Skeleton skeleton;
-    skeleton.Initialize();
     skeleton.Load();
     // ---------------------- Player ---------------------- 
     Player player;
-    player.Initialize();
     player.Load();
-
+      
+    // ---------------------- Delta time ---------------------- 
+    FrameRate frameRate;
+    frameRate.Load();
     while (window.isOpen())
     {
-        
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -30,13 +31,16 @@ int main()
                 window.close();
             if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape))
                 window.close();
-        }
-        
-        player.Update(skeleton);
+        } 
+
+        frameRate.Update();
+        double deltaTime = frameRate.GetDeltaTime();
+        player.Update(skeleton, deltaTime);
 
         window.clear(sf::Color::Black);
         skeleton.Draw(window);
         player.Draw(window);
+        frameRate.Draw(window);
         window.display();
     }
 
