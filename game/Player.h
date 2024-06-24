@@ -1,15 +1,20 @@
 #pragma once
+#include <iostream>
+
 #include "Skeleton.h"
+#include "Bullet.h"
+
 
 class Player 
 {
 private:
-	sf::Texture texture;
 	float speed;
+	float bulletFireRate;
+
+	sf::Texture texture;
 	sf::Sprite sprite;
-	std::vector<sf::CircleShape>  bullets;
-	float bulletSpeed;
-	double reload;
+
+	std::vector<Bullet> bullets;
 
 public:
 	Player();
@@ -17,7 +22,7 @@ public:
 
 	void Initialize();
 	void Load();
-	void Update(Skeleton &skeleton, float deltaTime);
+	void Update(Skeleton &skeleton, sf::RenderWindow& window, sf::Vector2f mousePosition, float deltaTime);
 	void Draw(sf::RenderWindow &window);
 };
 

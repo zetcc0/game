@@ -1,13 +1,21 @@
 #include "Skeleton.h"
 
-Skeleton::Skeleton()
+Skeleton::Skeleton() :
+    health(100)
 {
-    this->sprite.setPosition(sf::Vector2f(300, 300));
-    this->sprite.setTextureRect(sf::IntRect(0, 128, 64, 64));
+    sprite.setPosition(sf::Vector2f(300, 300));
+    sprite.setTextureRect(sf::IntRect(0, 128, 64, 64));
+    
 }
 
 Skeleton::~Skeleton()
 {
+}
+
+void Skeleton::ChangeHealth(int hp)
+{
+    health += hp;
+    healthText.setString(std::to_string(health));
 }
 
 void Skeleton::Initialize()
@@ -16,15 +24,22 @@ void Skeleton::Initialize()
 
 void Skeleton::Load()
 {
-    if (this->texture.loadFromFile("Assets/Skeleton/Textures/spritesheet.png"))
-        this->sprite.setTexture(this->texture);
+    if (texture.loadFromFile("Assets/Skeleton/Textures/spritesheet.png"))
+        sprite.setTexture(texture);
+    if (font.loadFromFile("Assets/Fonts/fontFrameRate.ttf"))
+    {
+        healthText.setFont(font);
+        healthText.setString(std::to_string(health));
+    }
 }
 
 void Skeleton::Update()
 {
+    healthText.setPosition(sprite.getPosition() + sf::Vector2f(10, -20));
 }
 
 void Skeleton::Draw(sf::RenderWindow &window)
 {
-    window.draw(this->sprite);
+    window.draw(sprite);
+    window.draw(healthText);
 }

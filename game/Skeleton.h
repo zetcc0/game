@@ -4,6 +4,11 @@
 class Skeleton
 {
 private:
+	int health;
+
+	sf::Text healthText;
+	sf::Font font;
+	
 	sf::Texture texture;
 
 public:
@@ -12,7 +17,8 @@ public:
 public:
 	Skeleton();
 	~Skeleton();
-
+	
+	void ChangeHealth(int hp);
 	void Initialize();
 	void Load();
 	void Update();

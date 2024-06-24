@@ -10,7 +10,6 @@ int main()
     settings.antialiasingLevel = 8;
     sf::RenderWindow window(sf::VideoMode(1200, 900), "Ventana nueva pa", sf::Style::Default, settings);
     window.setFramerateLimit(60);
-
     
     // ---------------------- Skeleton ---------------------- 
     Skeleton skeleton;
@@ -33,14 +32,19 @@ int main()
                 window.close();
         } 
 
-        frameRate.Update();
+        sf::Vector2f mousePosition = sf::Vector2f(sf::Mouse::getPosition(window));
         double deltaTime = frameRate.GetDeltaTime();
-        player.Update(skeleton, deltaTime);
+        
+        frameRate.Update();
+        player.Update(skeleton, window, mousePosition, deltaTime);
+        skeleton.Update();
 
         window.clear(sf::Color::Black);
+        
         skeleton.Draw(window);
         player.Draw(window);
         frameRate.Draw(window);
+        
         window.display();
     }
 
