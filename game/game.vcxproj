@@ -22,16 +22,19 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="FrameRate.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Map.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Skeleton.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Bullet.h" />
-    <ClInclude Include="FrameRate.h" />
-    <ClInclude Include="Math.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Skeleton.h" />
+    <ClInclude Include="Includes\Bullet.h" />
+    <ClInclude Include="Includes\FrameRate.h" />
+    <ClInclude Include="Includes\Tile.h" />
+    <ClInclude Include="Includes\Map.h" />
+    <ClInclude Include="Includes\Math.h" />
+    <ClInclude Include="Includes\Player.h" />
+    <ClInclude Include="Includes\Skeleton.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

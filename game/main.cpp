@@ -1,6 +1,8 @@
-#include "Skeleton.h"
-#include "Player.h"
-#include "FrameRate.h"
+#include "Includes/Skeleton.h"
+#include "Includes/Player.h"
+#include "Includes/FrameRate.h"
+#include "Includes/Map.h"
+
 
 
 int main()
@@ -14,9 +16,14 @@ int main()
     // ---------------------- Skeleton ---------------------- 
     Skeleton skeleton;
     skeleton.Load();
+
     // ---------------------- Player ---------------------- 
     Player player;
     player.Load();
+
+    // ---------------------- Player ---------------------- 
+    Map map;
+    map.Load();
       
     // ---------------------- Delta time ---------------------- 
     FrameRate frameRate;
@@ -40,7 +47,8 @@ int main()
         skeleton.Update();
 
         window.clear(sf::Color::Black);
-        
+
+        map.Draw(window);
         skeleton.Draw(window);
         player.Draw(window);
         frameRate.Draw(window);

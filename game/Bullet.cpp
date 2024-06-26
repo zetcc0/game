@@ -1,5 +1,5 @@
-#include "Bullet.h"
-#include "Math.h"
+#include "Includes/Bullet.h"
+#include "Includes/Math.h"
 
 Bullet::Bullet(const sf::Vector2f &position, const sf::Vector2f &target) :
 	speed(1.2f)

@@ -1,5 +1,5 @@
-#include "Player.h"
-#include "Math.h"
+#include "Includes/Player.h"
+#include "Includes/Math.h"
 
 Player::Player() :
     speed(1),
