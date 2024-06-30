@@ -1,8 +1,9 @@
-#include "Includes/Skeleton.h"
-#include "Includes/Player.h"
-#include "Includes/FrameRate.h"
-#include "Includes/Map.h"
-
+#include "include/Skeleton.h"
+#include "include/Player.h"
+#include "include/FrameRate.h"
+#include "include/Map.h"
+#include "include/MapLoader.h"
+#include "include/MapData.h"
 
 
 int main()
@@ -21,10 +22,18 @@ int main()
     Player player;
     player.Load();
 
-    // ---------------------- Player ---------------------- 
+    // ---------------------- Map ---------------------- 
     Map map;
     map.Load();
-      
+
+    // ---------------------- MapData ---------------------- 
+    MapData mapData;
+
+    // ---------------------- MapLoader ---------------------- 
+    MapLoader mapLoader;
+    mapLoader.Load("./assets/maps/example.mymap", mapData);
+
+
     // ---------------------- Delta time ---------------------- 
     FrameRate frameRate;
     frameRate.Load();

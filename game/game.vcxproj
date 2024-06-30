@@ -19,22 +19,27 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="FrameRate.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Map.cpp" />
-    <ClCompile Include="Math.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Skeleton.cpp" />
+    <ClCompile Include="src\ParseMapFile.cpp" />
+    <ClCompile Include="src\MapLoader.cpp" />
+    <ClCompile Include="src\Bullet.cpp" />
+    <ClCompile Include="src\FrameRate.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Map.cpp" />
+    <ClCompile Include="src\Math.cpp" />
+    <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="src\Skeleton.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Includes\Bullet.h" />
-    <ClInclude Include="Includes\FrameRate.h" />
-    <ClInclude Include="Includes\Tile.h" />
-    <ClInclude Include="Includes\Map.h" />
-    <ClInclude Include="Includes\Math.h" />
-    <ClInclude Include="Includes\Player.h" />
-    <ClInclude Include="Includes\Skeleton.h" />
+    <ClInclude Include="src\include\MapData.h" />
+    <ClInclude Include="src\include\ParseMapFile.h" />
+    <ClInclude Include="src\include\MapLoader.h" />
+    <ClInclude Include="src\include\Bullet.h" />
+    <ClInclude Include="src\include\FrameRate.h" />
+    <ClInclude Include="src\include\Tile.h" />
+    <ClInclude Include="src\include\Map.h" />
+    <ClInclude Include="src\include\Math.h" />
+    <ClInclude Include="src\include\Player.h" />
+    <ClInclude Include="src\include\Skeleton.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

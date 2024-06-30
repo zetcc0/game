@@ -1,4 +1,4 @@
-#include "Includes/Math.h"
+#include "include/Math.h"
 
 sf::Vector2f Math::normalizeVector(sf::Vector2f vector)
 {

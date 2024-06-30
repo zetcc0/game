@@ -1,4 +1,4 @@
-#include "Includes/Skeleton.h"
+#include "include/Skeleton.h"
 
 Skeleton::Skeleton() :
     health(100)
@@ -24,9 +24,9 @@ void Skeleton::Initialize()
 
 void Skeleton::Load()
 {
-    if (texture.loadFromFile("Assets/Skeleton/Textures/spritesheet.png"))
+    if (texture.loadFromFile("./assets/skeleton/textures/spritesheet.png"))
         sprite.setTexture(texture);
-    if (font.loadFromFile("Assets/Fonts/fontFrameRate.ttf"))
+    if (font.loadFromFile("./assets/fonts/fontFrameRate.ttf"))
     {
         healthText.setFont(font);
         healthText.setString(std::to_string(health));

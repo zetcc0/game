@@ -1,10 +1,12 @@
-#include "Includes/Map.h"
+#include "Include/Map.h"
 #include "iostream"
 
 Map::Map() :
-	tileHeight(16), tileWidth(16), totalTilesY(0), totalTilesX(0)
+	tileHeight(16), tileWidth(16), 
+	totalTilesY(0), totalTilesX(0), 
+	tiles(nullptr)
 {
-	tiles = nullptr;
+	
 }
 
 Map::~Map()
@@ -13,7 +15,7 @@ Map::~Map()
 
 void Map::Load()
 {
-	if (tileSheetTexture.loadFromFile("Assets/Map/tileSheet.png"))
+	if (tileSheetTexture.loadFromFile("./assets/world/tileSheet.png"))
 	{
 		totalTilesY = tileSheetTexture.getSize().y / tileHeight;
 		totalTilesX = tileSheetTexture.getSize().x / tileWidth;
@@ -34,18 +36,18 @@ void Map::Load()
 		}
 	}
 
-	for (int y = 0; y < 6; y++)
+	for (int y = 0; y < MAP_HEIGHT; y++)
 	{
-		for (int x = 0; x < 6; x++)
+		for (int x = 0; x < MAP_WIDTH; x++)
 		{
-			int i = x + y * 6;
+			int i = x + y * MAP_WIDTH;
 
 			int tileIndex = mapIds[i];
 
 			mapSprites[i].setTexture(tileSheetTexture);
 			mapSprites[i].setTextureRect(sf::IntRect(tiles[tileIndex].position.x, tiles[tileIndex].position.y, tileWidth, tileHeight));
 			mapSprites[i].setScale(sf::Vector2f(5, 5));
-			mapSprites[i].setPosition(sf::Vector2f(x * tileWidth * 5.f, y * tileHeight * 5.f));
+			mapSprites[i].setPosition(sf::Vector2f(x * tileWidth * mapSprites[i].getScale().x, y * tileHeight * mapSprites[i].getScale().y));
 		}
 	}
 }
@@ -56,6 +58,6 @@ void Map::Update(float deltaTime)
 
 void Map::Draw(sf::RenderWindow& window)
 {
-	for (size_t i = 0; i < 36; i++)
+	for (size_t i = 0; i < MAP_SIZE; i++)
 		window.draw(mapSprites[i]);
 }

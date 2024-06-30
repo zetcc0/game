@@ -1,5 +1,5 @@
-#include "Includes/Player.h"
-#include "Includes/Math.h"
+#include "include/Player.h"
+#include "include/Math.h"
 
 Player::Player() :
     speed(1),
@@ -18,7 +18,7 @@ void Player::Initialize()
 
 void Player::Load()
 {
-    if (texture.loadFromFile("Assets/Player/Textures/playerspritesheet.png"))
+    if (texture.loadFromFile("./assets/player/textures/playerspritesheet.png"))
         sprite.setTexture(texture);
 
     sprite.setPosition(sf::Vector2f(100, 100));

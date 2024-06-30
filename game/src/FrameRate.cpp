@@ -1,4 +1,4 @@
-#include "Includes/FrameRate.h"
+#include "include/FrameRate.h"
 
 FrameRate::FrameRate() :
 	deltaTime(0),
@@ -16,7 +16,7 @@ void FrameRate::Initialize()
 
 void FrameRate::Load()
 {
-	if (font.loadFromFile("Assets/Fonts/fontFrameRate.ttf"))
+	if (font.loadFromFile("./assets/fonts/fontFrameRate.ttf"))
 		frameRateText.setFont(font);
 }
 
