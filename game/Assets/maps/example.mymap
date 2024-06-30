@@ -1,15 +1,23 @@
 [Map]
-	tileSheetFilepath  = "D:/visualgame/game/game/assets/world/Tilesheet.png"
-	name       = "Level 1"
+	version = 0
+	
+	tileSheetFilepath = "D:/visualgame/game/game/assets/world/Tilesheet.png"
+	name              = "Level 1"
+	
 	tileWidth  = 16   
 	tileHeight = 16  
-	scaleX     = 5   
-	scaleY     = 5
-	dataSize = 36 
-	data       = {	2, 3, 3, 3, 3, 4,
-					26, 1, 1, 1, 1, 26,
-					26, 1, 1, 1, 1, 26,
-					26, 1, 1, 1, 1, 26,
-					26, 1, 1, 1, 1, 26,
-					50, 24, 24, 24, 24, 50
-				 }	
+	
+	scaleX = 5   
+	scaleY = 5
+	
+	mapWidth  = 6
+	mapHeight = 7
+	dataSize  = 42
+	data      = {	 2,  3,  3,  3,  3,  4,
+					26,  1,  1,  1,  1, 26,
+					26,  1,  1,  1,  1, 26,
+					26,  1,  1,  1,  1, 26,
+					26,  1,  1,  1,  1, 26,
+					50,  3, 25,  1, 24, 28, 
+					 1,  1,  1,  1,  1,  1
+				}	

@@ -21,18 +21,10 @@ int main()
     // ---------------------- Player ---------------------- 
     Player player;
     player.Load();
-
+    
     // ---------------------- Map ---------------------- 
     Map map;
     map.Load();
-
-    // ---------------------- MapData ---------------------- 
-    MapData mapData;
-
-    // ---------------------- MapLoader ---------------------- 
-    MapLoader mapLoader;
-    mapLoader.Load("./assets/maps/example.mymap", mapData);
-
 
     // ---------------------- Delta time ---------------------- 
     FrameRate frameRate;
@@ -49,12 +41,12 @@ int main()
         } 
 
         sf::Vector2f mousePosition = sf::Vector2f(sf::Mouse::getPosition(window));
-        double deltaTime = frameRate.GetDeltaTime();
+        float deltaTime = (float)frameRate.GetDeltaTime();
         
         frameRate.Update();
         player.Update(skeleton, window, mousePosition, deltaTime);
         skeleton.Update();
-
+        
         window.clear(sf::Color::Black);
 
         map.Draw(window);

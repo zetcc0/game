@@ -24,7 +24,7 @@ static void get_array_from_file(std::string& value, std::ifstream& file)
 {
 	remove_chars_from_string(value, charsToRemove);
 
-	int count = 0;
+	size_t count = 0;
 
 	count = value.find("{");
 	value = value.substr(count + 1, value.length() - count);
@@ -50,6 +50,7 @@ static void get_array_from_file(std::string& value, std::ifstream& file)
 			value.append(actualValue);
 		}
 	}
+
 }
 
 
