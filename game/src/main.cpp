@@ -5,13 +5,15 @@
 #include "include/MapLoader.h"
 #include "include/MapData.h"
 
+#define WINDOW_WIDTH 1280
+#define WINDOW_HEIGHT 720
 
 int main()
 {
     // ---------------------- Creating window ---------------------- 
     sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
-    sf::RenderWindow window(sf::VideoMode(1200, 900), "Ventana nueva pa", sf::Style::Default, settings);
+    sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Ventana nueva pa", sf::Style::Default, settings);
     window.setFramerateLimit(60);
     
     // ---------------------- Skeleton ---------------------- 

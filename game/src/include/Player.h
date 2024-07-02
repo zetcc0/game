@@ -10,11 +10,11 @@ class Player
 private:
 	float speed;
 	float bulletFireRate;
-
+	float scale;
 	sf::Texture texture;
 	sf::Sprite sprite;
 
-	std::vector<Bullet> bullets;
+	std::vector<Bullet*> bullets;
 
 public:
 	Player();

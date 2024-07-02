@@ -2,7 +2,8 @@
 #include "include/Math.h"
 
 Player::Player() :
-    speed(1),
+    scale(2),
+    speed(0.5),
     bulletFireRate(0)
 {
 }
@@ -20,8 +21,9 @@ void Player::Load()
 {
     if (texture.loadFromFile("./assets/player/textures/playerspritesheet.png"))
         sprite.setTexture(texture);
-
+    
     sprite.setPosition(sf::Vector2f(100, 100));
+    sprite.setScale(sf::Vector2f(scale, scale));
     sprite.setTextureRect(sf::IntRect(0, 0, 64, 64));
 }
 
@@ -51,8 +53,10 @@ void Player::Update(Skeleton &skeleton, sf::RenderWindow &window, sf::Vector2f m
     bulletFireRate += deltaTime;
     if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) && bulletFireRate >= 250.0)
     {
-        
-        Bullet bullet(sprite.getPosition(), mousePosition);
+        Bullet* bullet;
+       
+        bullet = new Bullet(sprite.getPosition(), mousePosition);
+        bullet->Load(sprite.getPosition());
         bullets.push_back(bullet);
         bulletFireRate = 0;
     }
@@ -60,9 +64,10 @@ void Player::Update(Skeleton &skeleton, sf::RenderWindow &window, sf::Vector2f m
     for (size_t i = 0; i < bullets.size(); i++)
     {
         
-        bullets[i].Update(deltaTime);
-        if (bullets[i].GetBounds().intersects(skeleton.sprite.getGlobalBounds()))
+        bullets[i]->Update(deltaTime);
+        if (bullets[i]->GetBounds().intersects(skeleton.sprite.getGlobalBounds()))
         {
+            delete bullets[i];
             bullets.erase(std::next(bullets.begin(), i));
             skeleton.ChangeHealth(-10);
         }
@@ -75,6 +80,6 @@ void Player::Draw(sf::RenderWindow &window)
     window.draw(sprite);
     for (size_t i = 0; i < bullets.size(); i++)
     {
-        bullets[i].Draw(window);
+        bullets[i]->Draw(window);
     }
 }

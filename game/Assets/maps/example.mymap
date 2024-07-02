@@ -1,7 +1,7 @@
 [Map]
 	version = 0
 	
-	tileSheetFilepath = "D:/visualgame/game/game/assets/world/Tilesheet.png"
+	tileSheetFilepath = "./assets/world/Tilesheet.png"
 	name              = "Level 1"
 	
 	tileWidth  = 16   
@@ -13,7 +13,8 @@
 	mapWidth  = 6
 	mapHeight = 7
 	dataSize  = 42
-	data      = {	 2,  3,  3,  3,  3,  4,
+	data      = {	 
+					2,  3,  3,  3,  3,  4,
 					26,  1,  1,  1,  1, 26,
 					26,  1,  1,  1,  1, 26,
 					26,  1,  1,  1,  1, 26,

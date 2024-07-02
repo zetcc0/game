@@ -5,6 +5,8 @@ VisualStudioVersion = 17.10.35004.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "game", "game\game.vcxproj", "{C895B67E-A37D-418B-A1C2-15EF180CD180}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "maploader", "maploader\maploader.vcxproj", "{D724D5A2-7D99-4E0B-9D62-CA8A0D2DDBA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{C895B67E-A37D-418B-A1C2-15EF180CD180}.Release|x64.Build.0 = Release|x64
 		{C895B67E-A37D-418B-A1C2-15EF180CD180}.Release|x86.ActiveCfg = Release|Win32
 		{C895B67E-A37D-418B-A1C2-15EF180CD180}.Release|x86.Build.0 = Release|Win32
+		{D724D5A2-7D99-4E0B-9D62-CA8A0D2DDBA2}.Debug|x64.ActiveCfg = Debug|x64
+		{D724D5A2-7D99-4E0B-9D62-CA8A0D2DDBA2}.Debug|x64.Build.0 = Debug|x64
+		{D724D5A2-7D99-4E0B-9D62-CA8A0D2DDBA2}.Debug|x86.ActiveCfg = Debug|Win32
+		{D724D5A2-7D99-4E0B-9D62-CA8A0D2DDBA2}.Debug|x86.Build.0 = Debug|Win32
+		{D724D5A2-7D99-4E0B-9D62-CA8A0D2DDBA2}.Release|x64.ActiveCfg = Release|x64
+		{D724D5A2-7D99-4E0B-9D62-CA8A0D2DDBA2}.Release|x64.Build.0 = Release|x64
+		{D724D5A2-7D99-4E0B-9D62-CA8A0D2DDBA2}.Release|x86.ActiveCfg = Release|Win32
+		{D724D5A2-7D99-4E0B-9D62-CA8A0D2DDBA2}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
